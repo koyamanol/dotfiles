@@ -1,0 +1,12 @@
+# for macOS
+.DS_Store
+
+# for vim
+.*.sw?
+
+# for pelican
+__pycache__
+*.py[cod]
+
+# for Hugo
+/public

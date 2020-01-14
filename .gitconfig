@@ -1,0 +1,12 @@
+[user]
+	name = koyamanol
+	email = koyama.norihiro@gmail.com
+[core]
+	excludesfile = /Users/norihiro/.gitignore_global
+	editor = /usr/local/bin/vim
+	ignorecase = false
+	quotepath = false
+[color]
+	ui = true
+[alias]
+	graph = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
