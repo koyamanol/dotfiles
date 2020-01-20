@@ -66,6 +66,7 @@ vnoremap < <gv
 " fzf
 "=========================================================================
 nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>h :History<CR>
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
