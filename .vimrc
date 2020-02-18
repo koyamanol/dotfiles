@@ -65,7 +65,7 @@ vnoremap < <gv
 "=========================================================================
 " fzf
 "=========================================================================
-nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>h :History<CR>
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -137,7 +137,7 @@ let g:user_emmet_leader_key='<C-e>' "emmet起動のキーバインドを設定�
 "=========================================================================
 " Previm
 "=========================================================================
-nnoremap <silent> <Leader>o :PrevimOpen<CR>
+nnoremap <silent> <Leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
 
