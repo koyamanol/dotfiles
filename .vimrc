@@ -81,8 +81,8 @@ map <C-n> :NERDTreeToggle<CR>
 " vim_indent_guide
 "=========================================================================
 let g:indent_guides_enable_on_vim_startup = 1   "Vim開始時に起動する
-hi IndentGuidesOdd  ctermbg=233
-hi IndentGuidesEven ctermbg=235
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
 
 
 "=========================================================================
