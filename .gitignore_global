@@ -6,8 +6,6 @@
 
 # for python
 .venv
-
-# for pelican
 __pycache__
 *.py[cod]
 
