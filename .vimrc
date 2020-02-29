@@ -8,8 +8,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'jimsei/winresizer'                   "ウィンドウリサイズ
 Plug 'itchyny/lightline.vim'               "ステータスライン拡張
 Plug 'nathanaelkane/vim-indent-guides'     "インデントの可視化
-Plug 'scrooloose/nerdtree'                 "ファイルブラウザ
-Plug 'Xuyuanp/nerdtree-git-plugin'         "neardtreeにGitの状態を表示
 Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示
 Plug 'tpope/vim-commentary'                "コメントを入力補完
 Plug 'tpope/vim-surround'                  "範囲選択を拡張
@@ -69,12 +67,6 @@ nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>h :History<CR>
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-
-"=========================================================================
-" NERDTree
-"=========================================================================
-map <C-n> :NERDTreeToggle<CR>
 
 
 "=========================================================================
