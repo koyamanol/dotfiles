@@ -20,6 +20,7 @@ Plug 'mattn/emmet-vim'                     "html/cssを入力補完
 Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
 Plug 'previm/previm'                       "markdownをプレビュー
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -51,13 +52,17 @@ set hlsearch                    "検索結果をハイライトする
 set ignorecase                  "検索で大文字と小文字を区別しない
 set wrapscan                    "最後尾の検索候補まで行ったら先頭に戻る
 set hidden                      "ファイルが未保存でもバッファを移動する
-set autochdir                   "自動でカレントファイルのディレクトリに移動する
 set splitbelow                  "水平分割時に下にウィンドウを開く
-set termwinsize=10x0            "terminalのサイズを指定する
 noremap bb :ls<CR>:b
 nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
+
+
+"=========================================================================
+" 日付を自動で入力する
+"=========================================================================
+nmap ,dt <Esc>i<C-R>=strftime("%Y/%m/%d (%a)")<CR><Esc>0
 
 
 "=========================================================================
