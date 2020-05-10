@@ -20,7 +20,6 @@ Plug 'mattn/emmet-vim'                     "html/cssを入力補完
 Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
 Plug 'previm/previm'                       "markdownをプレビュー
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
-Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -69,6 +68,7 @@ nmap ,dt <Esc>i<C-R>=strftime("%Y/%m/%d (%a)")<CR><Esc>0
 " fzf
 "=========================================================================
 nnoremap <silent> <Leader>o :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>h :History<CR>
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
