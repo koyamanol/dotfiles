@@ -40,7 +40,9 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 #=========================================================================
 # alias
 #=========================================================================
-alias todo='vim /Users/norihiro/Library/Mobile\ Documents/com\~apple\~CloudDocs/todo/todo.txt'
+alias todo='vim /Users/norihiro/Library/Mobile\ Documents/com\~apple\~CloudDocs/note/todo/todo.txt'
+alias done='vim /Users/norihiro/Library/Mobile\ Documents/com\~apple\~CloudDocs/note/todo/done.txt'
+
 
 #=========================================================================
 # Homebrew
