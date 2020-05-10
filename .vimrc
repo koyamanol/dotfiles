@@ -20,6 +20,7 @@ Plug 'mattn/emmet-vim'                     "html/cssを入力補完
 Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
 Plug 'previm/previm'                       "markdownをプレビュー
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
