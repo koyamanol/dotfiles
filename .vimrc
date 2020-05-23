@@ -15,12 +15,13 @@ Plug 'prabirshrestha/vim-lsp'              "lsp用プラグイン
 Plug 'prabirshrestha/async.vim'            "vim-lspの補助
 Plug 'prabirshrestha/asyncomplete.vim'     "入力補完
 Plug 'prabirshrestha/asyncomplete-lsp.vim' "入力補完の補助
+Plug 'tpope/vim-fugitive'                  "git用プラグイン
+Plug 'twitvim/twitvim'                     "twitter用プラグイン
 Plug 'VincentCordobes/vim-translate'       "翻訳プラグイン
 Plug 'mattn/emmet-vim'                     "html/cssを入力補完
 Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
 Plug 'previm/previm'                       "markdownをプレビュー
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
