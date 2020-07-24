@@ -40,8 +40,9 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 #=========================================================================
 # alias
 #=========================================================================
-alias todo='vim ~/Documents/note/todo/todo.txt'
-alias note='cd ~/Documents/note/'
+alias tree='tree -N'
+alias todo='vim ~/Documents/todo/todo.txt'
+alias cl='cd ~//Library/Mobile\ Documents/com\~apple\~CloudDocs/'
 
 
 #=========================================================================
