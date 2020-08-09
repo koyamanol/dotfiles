@@ -41,10 +41,16 @@ set laststatus=2                "常にステータス行を表示する
 set showcmd                     "未完のコマンドを表示する
 set wildmode=longest,list       "Exコマンドの候補をリスト表示する
 set history=1000                "Exコマンドの履歴保持数を1000に増やす
-set autoindent                  "改行時に前の行のインデントを継続する
 set expandtab                   "タブ文字を半角スペースに変換する
+set autoindent                  "改行時に前の行のインデントを継続する
 set tabstop=4                   "タブ・スペースの文字数を設定する
 set shiftwidth=4                "自動インデントの文字数を設定する
+set softtabstop=4               "連続したスペースをまとめて削除する
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
 set backspace=2                 "Ctrl-hの対象を増やす
 set list                        "不可視文字を表示する
 set listchars=tab:▸\ ,trail:.
