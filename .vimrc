@@ -87,8 +87,8 @@ command! -bang -nargs=? -complete=dir Files
 " vim_indent_guide
 "=========================================================================
 let g:indent_guides_enable_on_vim_startup = 1   "Vim開始時に起動する
-hi IndentGuidesOdd  ctermbg=235
-hi IndentGuidesEven ctermbg=237
+hi IndentGuidesOdd  ctermbg=232
+hi IndentGuidesEven ctermbg=236
 
 
 "=========================================================================
