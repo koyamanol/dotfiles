@@ -42,7 +42,7 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 #=========================================================================
 alias tree='tree -N'
 alias todo='vim ~/Documents/note/todo/todo.txt'
-alias notes='cd ~/Documents/note/'
+alias note='cd ~/Documents/note/'
 
 
 #=========================================================================
