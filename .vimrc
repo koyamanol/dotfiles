@@ -60,7 +60,6 @@ set ignorecase                  "検索で大文字と小文字を区別しな�
 set wrapscan                    "最後尾の検索候補まで行ったら先頭に戻る
 set hidden                      "ファイルが未保存でもバッファを移動する
 set splitbelow                  "水平分割時に下にウィンドウを開く
-set clipboard=unnamed           "OSのクリップボードを共有する
 imap jj <Esc>
 map H ^
 map L $
