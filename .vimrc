@@ -5,23 +5,21 @@ call plug#begin('~/.vim/plugged')
 
 Plug '/usr/local/opt/fzf'                  "ファジーファインダー
 Plug 'junegunn/fzf.vim'
-Plug 'jimsei/winresizer'                   "ウィンドウリサイズ
 Plug 'itchyny/lightline.vim'               "ステータスライン拡張
 Plug 'nathanaelkane/vim-indent-guides'     "インデントの可視化
 Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示
+Plug 'tpope/vim-fugitive'                  "git用プラグイン
 Plug 'tpope/vim-commentary'                "コメントを入力補完
 Plug 'tpope/vim-surround'                  "範囲選択を拡張
 Plug 'prabirshrestha/vim-lsp'              "lsp用プラグイン
 Plug 'prabirshrestha/async.vim'            "vim-lspの補助
 Plug 'prabirshrestha/asyncomplete.vim'     "入力補完
 Plug 'prabirshrestha/asyncomplete-lsp.vim' "入力補完の補助
-Plug 'tpope/vim-fugitive'                  "git用プラグイン
-Plug 'twitvim/twitvim'                     "twitter用プラグイン
 Plug 'VincentCordobes/vim-translate'       "翻訳プラグイン
+Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
 Plug 'mattn/emmet-vim'                     "html/cssを入力補完
 Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
 Plug 'previm/previm'                       "markdownをプレビュー
-Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
 
 call plug#end()
 
@@ -138,6 +136,12 @@ let g:translate#default_languages = {
 
 
 "=========================================================================
+" vim-table-mode
+"=========================================================================
+let g:table_mode_corner='|'
+
+
+"=========================================================================
 " emmet-vim
 "=========================================================================
 let g:user_emmet_leader_key='<C-e>' "emmet起動のキーバインドを設定する
@@ -149,9 +153,3 @@ let g:user_emmet_leader_key='<C-e>' "emmet起動のキーバインドを設定�
 nnoremap <silent> <Leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
-
-
-"=========================================================================
-" vim-table-mode
-"=========================================================================
-let g:table_mode_corner='|'
