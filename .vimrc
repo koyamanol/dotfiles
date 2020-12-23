@@ -58,10 +58,8 @@ set ignorecase                  "検索で大文字と小文字を区別しな�
 set wrapscan                    "最後尾の検索候補まで行ったら先頭に戻る
 set hidden                      "ファイルが未保存でもバッファを移動する
 set splitbelow                  "水平分割時に下にウィンドウを開く
-imap jj <Esc>
-map H ^
-map L $
-noremap bb :ls<CR>:b
+
+inoremap jj <Esc>
 nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
@@ -71,7 +69,7 @@ vnoremap "" "*
 "=========================================================================
 " 日付を自動で入力する
 "=========================================================================
-nmap ,dt <Esc>i<C-R>=strftime("%F %T")<CR><Esc>0
+nnoremap ,dt <Esc>i<C-R>=strftime("%F %T")<CR><Esc>0
 ia dt <C-R>=strftime("%F %T")<CR>
 
 
@@ -127,8 +125,6 @@ endif
 "=========================================================================
 vnoremap <silent> <leader>tl :TranslateVisual<CR>
 vnoremap <silent> <leader>tr :TranslateReplace<CR>
-nmap <leader>tl <Plug>Translate
-nmap <leader>tr <Plug>TranslateReplace
 
 let g:translate#default_languages = {
       \ 'en': 'ja',
