@@ -65,6 +65,7 @@ noremap bb :ls<CR>:b
 nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
+vnoremap "" "*
 
 
 "=========================================================================
