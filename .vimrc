@@ -64,6 +64,7 @@ nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
 vnoremap "" "*
+nnoremap gs :%s/
 
 
 "=========================================================================
