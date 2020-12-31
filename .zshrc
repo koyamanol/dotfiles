@@ -73,7 +73,7 @@ bindkey '^G' fzf-cd-widget
 #=========================================================================
 # python
 #=========================================================================
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"  # Make python3 default
+export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH" # Make python3 default
 export PATH="$PATH:$HOME/.poetry/bin"                  # Add PATH for poetry
 
 export LC_ALL=en_US.UTF-8                              # Set the locale for Python
