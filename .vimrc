@@ -151,3 +151,11 @@ let g:user_emmet_leader_key='<C-e>' "emmet起動のキーバインドを設定�
 nnoremap <silent> <Leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
+
+
+"=========================================================================
+" Obsidian
+"=========================================================================
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+autocmd BufRead,BufNewFile $KB_DIRECTORY* setlocal path+=$KB_DIRECTORY/**
+set suffixesadd+=.md
