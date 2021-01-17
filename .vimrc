@@ -77,9 +77,9 @@ ia dt <C-R>=strftime("%F %T")<CR>
 "=========================================================================
 " fzf
 "=========================================================================
-nnoremap <silent> <Leader>o :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>h :History<CR>
 
 
 "=========================================================================
@@ -153,7 +153,7 @@ let g:user_emmet_leader_key='<C-e>' "emmet起動のキーバインドを設定�
 "=========================================================================
 " Previm
 "=========================================================================
-nnoremap <silent> <Leader>p :PrevimOpen<CR>
+nnoremap <silent> <leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
 
