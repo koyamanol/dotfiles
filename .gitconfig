@@ -19,3 +19,5 @@
     rebase = false
 [commit]
 	template = /Users/norihiro/dotfiles/.gitmessage
+[init]
+	defaultBranch = main
