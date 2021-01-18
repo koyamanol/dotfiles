@@ -6,6 +6,12 @@
     editor = /usr/local/bin/vim
     ignorecase = false
     quotepath = false
+[init]
+    defaultBranch = main
+[commit]
+    template = /Users/norihiro/dotfiles/.gitmessage
+[pull]
+    rebase = false
 [color]
     ui = true
 [alias]
@@ -15,9 +21,3 @@
     st = status
     d = diff
     l = log --graph --pretty=format:'%C(magenta)%ad %C(blue)%an %C(yellow)%h %C(reset)%s%C(red)%d' --date=short
-[pull]
-    rebase = false
-[commit]
-	template = /Users/norihiro/dotfiles/.gitmessage
-[init]
-	defaultBranch = main
