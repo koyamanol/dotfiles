@@ -59,7 +59,6 @@ set wrapscan                    "最後尾の検索候補まで行ったら先�
 set hidden                      "ファイルが未保存でもバッファを移動する
 set splitbelow                  "水平分割時に下にウィンドウを開く
 
-inoremap jj <Esc>
 nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
