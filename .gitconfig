@@ -17,9 +17,19 @@
 [grep]
     lineNumber = true
 [alias]
+    a = add
+    aa = add -A
     cm = commit
-    co = checkout
-    br = branch
-    st = status
+
+    s = status
     d = diff
     l = log --graph --pretty=format:'%C(magenta)%ad %C(blue)%an %C(yellow)%h %C(reset)%s%C(red)%d' --date=short
+
+    co = checkout
+    sw = switch
+    rs = restore
+
+    b = branch
+
+    pu = push
+    pl = pull -p
