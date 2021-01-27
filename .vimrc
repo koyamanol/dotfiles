@@ -54,6 +54,7 @@ set list                        "不可視文字を表示する
 set listchars=tab:▸\ ,trail:.
 set incsearch                   "インクリメンタルサーチを有効にする
 set hlsearch                    "検索結果をハイライトする
+set shortmess-=S                "検索結果の該当数を表示する
 set ignorecase                  "検索で大文字と小文字を区別しない
 set wrapscan                    "最後尾の検索候補まで行ったら先頭に戻る
 set hidden                      "ファイルが未保存でもバッファを移動する
