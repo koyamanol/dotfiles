@@ -8,7 +8,7 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{magenta}%*%f %F{cyan}%n:%f%F{yellow}%~%F{red}${vcs_info_msg_0_}%f%F{yellow}$%f '
+PROMPT='%F{magenta}%*%f %F{cyan}%n:%f%F{yellow}%~%f%F{red}${vcs_info_msg_0_}%f%F{yellow}%#%f '
 
 
 #=========================================================================
