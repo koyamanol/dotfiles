@@ -63,7 +63,7 @@ set splitbelow                  "水平分割時に下にウィンドウを開�
 nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
-vnoremap "" "*
+vnoremap <leader>y "+y
 nnoremap <leader>r :%s///g<Left><Left>
 
 
