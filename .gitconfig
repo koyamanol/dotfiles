@@ -3,7 +3,7 @@
     email = koyama.norihiro@gmail.com
 [core]
     excludesfile = /Users/norihiro/.gitignore_global
-    editor = /usr/local/bin/vim
+    editor = /opt/homebrew/bin/vim
     ignorecase = false
     quotepath = false
 [init]

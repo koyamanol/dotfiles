@@ -3,8 +3,8 @@
 "=========================================================================
 call plug#begin('~/.vim/plugged')
 
-Plug '/usr/local/opt/fzf'                  "ファジーファインダー
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'                    "ファジーファインダー
 Plug 'itchyny/lightline.vim'               "ステータスライン拡張
 Plug 'nathanaelkane/vim-indent-guides'     "インデントの可視化
 Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示

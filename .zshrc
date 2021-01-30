@@ -50,7 +50,7 @@ alias ocaml='ledit ocaml'
 #=========================================================================
 # Homebrew
 #=========================================================================
-export PATH="/usr/local/sbin:$PATH"          # Add PATH for Homebrew
+export PATH="/opt/homebrew/bin:$PATH"        # Add PATH for Homebrew
 
 
 #=========================================================================
@@ -75,8 +75,8 @@ bindkey '^G' fzf-cd-widget
 #=========================================================================
 # python
 #=========================================================================
-export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH" # Make python3 default
-export PATH="$PATH:$HOME/.poetry/bin"                  # Add PATH for poetry
+export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"   # Make python3 default
+export PATH="$PATH:$HOME/.poetry/bin"                          # Add PATH for poetry
 
 export LC_ALL=en_US.UTF-8                              # Set the locale for Python
 export LANG=en_US.UTF-8
