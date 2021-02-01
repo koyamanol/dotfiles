@@ -44,7 +44,7 @@ alias tree='tree -N'
 alias todo='vim ~/Documents/note/todo/todo.txt'
 alias note='cd ~/Documents/note/'
 alias g='git'
-alias ocaml='ledit ocaml' 
+alias or='rlwrap ocaml'
 
 
 #=========================================================================
