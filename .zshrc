@@ -50,14 +50,14 @@ alias or='rlwrap ocaml'
 #=========================================================================
 # Homebrew
 #=========================================================================
-if type brew &>/dev/null; then
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-autoload -Uz compinit
-compinit
-fi
-
 export PATH="/opt/homebrew/bin:$PATH"        # Add PATH for Homebrew
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 
 #=========================================================================
