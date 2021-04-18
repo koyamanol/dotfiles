@@ -87,3 +87,9 @@ export PATH="$PATH:$HOME/.poetry/bin"                          # Add PATH for po
 
 export LC_ALL=en_US.UTF-8                              # Set the locale for Python
 export LANG=en_US.UTF-8
+
+
+#=========================================================================
+# ChordPro
+#=========================================================================
+export PATH="/opt/homebrew/Cellar/perl/5.32.1_1/bin/:$PATH"   # Add PATH for ChordPro
