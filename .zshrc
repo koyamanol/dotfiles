@@ -41,8 +41,7 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 # alias
 #=========================================================================
 alias tree='tree -N'
-alias todo='vim ~/Documents/note/todo/todo.txt'
-alias note='cd ~/Documents/note/'
+alias todo='vim -O3 ~/Documents/note/todo/{inbox.txt,todo.txt,done.txt}'
 alias g='git'
 alias or='rlwrap ocaml'
 
