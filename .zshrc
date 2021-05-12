@@ -15,18 +15,20 @@ PROMPT='%F{magenta}%*%f %F{cyan}%n:%f%F{yellow}%~%f%F{red}${vcs_info_msg_0_}%f%F
 # zsh setting
 #=========================================================================
 autoload -Uz compinit && compinit            # Enhancement of complement function
-setopt correct                               # Spell check command
+
 export PATH="$PATH:$HOME/bin"                # Add PATH for my script
 export CLICOLOR=1                            # Configure command line colors
 export LSCOLORS=gxfxcxdxbxegedabagacad
-set -o noclobber                             # Prevent overwriting files with redirection
-export HISTCONTROL=ignoreboth:erasedups      # Ignore duplicate commands
-export HISTIGNORE=?:??:history               # Ignore specific commands
+
+setopt correct                               # Spell check command
+setopt noclobber                             # Prevent overwriting files with redirection
+
 HISTSIZE=100000                              # Change command history limit
-HISTFILESIZE=100000                          # Change .zsh_history limit
+SAVEHIST=100000                              # Change .zsh_history limit
 setopt share_history                         # Share the history
 setopt hist_ignore_all_dups                  # Remove duplicate history
 setopt hist_ignore_space                     # Delete history starts with space
+
 export LESS=-R                               # Configure man colors
 export LESS_TERMCAP_mb=$'\e[01;33m'          # Begin bold
 export LESS_TERMCAP_md=$'\e[01;36m'          # Begin blink
@@ -84,11 +86,11 @@ bindkey '^G' fzf-cd-widget
 export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"   # Make python3 default
 export PATH="$PATH:$HOME/.poetry/bin"                          # Add PATH for poetry
 
-export LC_ALL=en_US.UTF-8                              # Set the locale for Python
+export LC_ALL=en_US.UTF-8                                      # Set the locale for Python
 export LANG=en_US.UTF-8
 
 
 #=========================================================================
 # ChordPro
 #=========================================================================
-export PATH="/opt/homebrew/Cellar/perl/5.32.1_1/bin/:$PATH"   # Add PATH for ChordPro
+export PATH="/opt/homebrew/Cellar/perl/5.32.1_1/bin/:$PATH"    # Add PATH for ChordPro
