@@ -81,6 +81,12 @@ bindkey '^G' fzf-cd-widget
 
 
 #=========================================================================
+# opam
+#=========================================================================
+[[ ! -r /Users/norihiro/.opam/opam-init/init.zsh ]] || source /Users/norihiro/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+
+#=========================================================================
 # python
 #=========================================================================
 export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"   # Make python3 default
