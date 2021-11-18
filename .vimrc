@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示
 Plug 'tpope/vim-fugitive'                  "git用プラグイン
 Plug 'tpope/vim-commentary'                "コメントを入力補完
 Plug 'tpope/vim-surround'                  "範囲選択を拡張
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VincentCordobes/vim-translate'       "翻訳プラグイン
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
 Plug 'mattn/emmet-vim'                     "html/cssを入力補完
