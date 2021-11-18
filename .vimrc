@@ -11,10 +11,6 @@ Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示
 Plug 'tpope/vim-fugitive'                  "git用プラグイン
 Plug 'tpope/vim-commentary'                "コメントを入力補完
 Plug 'tpope/vim-surround'                  "範囲選択を拡張
-Plug 'prabirshrestha/vim-lsp'              "lsp用プラグイン
-Plug 'prabirshrestha/async.vim'            "vim-lspの補助
-Plug 'prabirshrestha/asyncomplete.vim'     "入力補完
-Plug 'prabirshrestha/asyncomplete-lsp.vim' "入力補完の補助
 Plug 'VincentCordobes/vim-translate'       "翻訳プラグイン
 Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
 Plug 'mattn/emmet-vim'                     "html/cssを入力補完
@@ -103,28 +99,6 @@ set updatetime=250                       "更新するタイミングを250msに
 "=========================================================================
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
-
-
-"=========================================================================
-" vim-lsp
-"=========================================================================
-let g:lsp_diagnostics_echo_cursor = 1    "エラー内容をステータスバーに表示する
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
-
-"=========================================================================
-" asyncomplete
-"=========================================================================
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 
 "=========================================================================
