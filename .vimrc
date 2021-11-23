@@ -45,7 +45,6 @@ augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd BufNewFile,BufRead *.ml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 set backspace=2                 "Ctrl-hの対象を増やす
 set list                        "不可視文字を表示する
