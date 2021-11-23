@@ -4,19 +4,19 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'                    "ファジーファインダー
-Plug 'itchyny/lightline.vim'               "ステータスライン拡張
-Plug 'nathanaelkane/vim-indent-guides'     "インデントの可視化
-Plug 'airblade/vim-gitgutter'              "編集箇所を差分表示
-Plug 'tpope/vim-fugitive'                  "git用プラグイン
-Plug 'tpope/vim-commentary'                "コメントを入力補完
-Plug 'tpope/vim-surround'                  "範囲選択を拡張
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'VincentCordobes/vim-translate'       "翻訳プラグイン
-Plug 'dhruvasagar/vim-table-mode'          "表作成を入力補完
-Plug 'mattn/emmet-vim'                     "html/cssを入力補完
-Plug 'vim-scripts/todo-txt.vim'            "todo-txt用プラグイン
-Plug 'previm/previm'                       "markdownをプレビュー
+Plug 'junegunn/fzf.vim'                            "ファジーファインダー
+Plug 'itchyny/lightline.vim'                       "ステータスライン拡張
+Plug 'nathanaelkane/vim-indent-guides'             "インデントの可視化
+Plug 'airblade/vim-gitgutter'                      "編集箇所を差分表示
+Plug 'tpope/vim-fugitive'                          "git用プラグイン
+Plug 'neoclide/coc.nvim', {'branch': 'release'}    "LSPプラグイン
+Plug 'tpope/vim-commentary'                        "コメントを入力補完
+Plug 'tpope/vim-surround'                          "範囲選択を拡張
+Plug 'VincentCordobes/vim-translate'               "翻訳プラグイン
+Plug 'dhruvasagar/vim-table-mode'                  "表作成を入力補完
+Plug 'mattn/emmet-vim'                             "html/cssを入力補完
+Plug 'vim-scripts/todo-txt.vim'                    "todo-txt用プラグイン
+Plug 'previm/previm'                               "markdownをプレビュー
 
 call plug#end()
 
@@ -100,6 +100,22 @@ set updatetime=250                       "更新するタイミングを250msに
 "=========================================================================
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+
+
+"=========================================================================
+" coc.nvim
+"=========================================================================
+"GoTo code navigation.
+nmap <silent> ,d <Plug>(coc-definition)
+nmap <silent> ,r <Plug>(coc-references)
+nmap <silent> ,y <Plug>(coc-type-definition)
+nmap <silent> ,i <Plug>(coc-implementation)
+
+"Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+"Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
 
 
 "=========================================================================
