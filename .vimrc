@@ -61,7 +61,8 @@ nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
 vnoremap <leader>y "+y
-nnoremap <leader>r :%s///g<Left><Left>
+nnoremap <leader>r  :<C-u>registers<CR>
+nnoremap <leader>m  :<C-u>marks<CR>
 
 
 "=========================================================================
