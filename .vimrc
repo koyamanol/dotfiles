@@ -128,6 +128,9 @@ command! -nargs=0 Format :call CocAction('format')
 "Temporary action for coc.nvim's colorscheme bug 2021.11.23
 autocmd VimEnter,ColorScheme * hi! link CocFloating CocHintFloat
 
+"ocp-indent
+set rtp^="/Users/norihiro/.opam/default/share/ocp-indent/vim"
+
 
 "=========================================================================
 " vim-translate
