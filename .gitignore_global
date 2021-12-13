@@ -3,6 +3,7 @@
 
 # for vim
 .*.sw?
+Session.vim
 
 # for python
 .venv
