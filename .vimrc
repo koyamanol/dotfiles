@@ -41,11 +41,6 @@ set autoindent                  "改行時に前の行のインデントを継�
 set tabstop=4                   "タブ・スペースの文字数を設定する
 set shiftwidth=4                "自動インデントの文字数を設定する
 set softtabstop=4               "連続したスペースをまとめて削除する
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-augroup END
 set backspace=2                 "Ctrl-hの対象を増やす
 set list                        "不可視文字を表示する
 set listchars=tab:▸\ ,trail:.
