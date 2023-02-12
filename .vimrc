@@ -60,8 +60,7 @@ nnoremap <leader>r  :<C-u>registers<CR>
 nnoremap <leader>m  :<C-u>marks<CR>
 tnoremap <Esc> <C-\><C-n>
 
-inoremap <C-j> <Esc>
-noremap! <C-j> <esc>
+inoremap <silent> jj <ESC>
 
 
 "=========================================================================
