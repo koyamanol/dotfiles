@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'                          "範囲選択を拡張
 Plug 'VincentCordobes/vim-translate'               "翻訳プラグイン
 Plug 'dhruvasagar/vim-table-mode'                  "表作成を入力補完
 Plug 'mattn/emmet-vim'                             "html/cssを入力補完
-Plug 'vim-scripts/todo-txt.vim'                    "todo-txt用プラグイン
+Plug 'kilisio/todo.txt-vim'                        "todo-txt用プラグイン
 Plug 'previm/previm'                               "markdownをプレビュー
 
 call plug#end()
@@ -29,6 +29,7 @@ syntax enable                   "シンタックスハイライトを有効に�
 filetype plugin indent on       "ファイル形式ごとを有効にする
 colorscheme jellybeans          "カラースキームを設定する
 let mapleader = "\<Space>"      "Leader keyを設定する
+let maplocalleader=","          "LocalLeader keyを設定する
 set number                      "行番号を表示する
 set cursorline                  "カーソルラインを表示する
 set ruler                       "常にカーソル位置を表示する
@@ -73,8 +74,7 @@ nnoremap <leader>s  :<C-u>source $MYVIMRC<CR>
 "=========================================================================
 " 日付を自動で入力する
 "=========================================================================
-nnoremap ,dt <Esc>i<C-R>=strftime("%F %T")<CR><Esc>0
-ia dt <C-R>=strftime("%F %T")<CR>
+ia dt <C-R>=strftime("%F")<CR>
 
 
 "=========================================================================
@@ -154,8 +154,22 @@ let g:user_emmet_leader_key='<C-e>'         "emmet起動のキーバインドを
 
 
 "=========================================================================
+" todo.txt-vim
+"=========================================================================
+au filetype todo setlocal omnifunc=todo#Complete
+au filetype todo imap <buffer> + +<C-X><C-O>
+au filetype todo imap <buffer> @ @<C-X><C-O>
+au filetype todo setlocal completeopt-=preview
+let g:TodoTxtUseAbbrevInsertMode=1
+let g:TodoTxtStripDoneItemPriority=1
+let g:Todo_fold_char='+'
+set foldlevel=1
+
+
+"=========================================================================
 " Previm
 "=========================================================================
 nnoremap <silent> <leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
+
