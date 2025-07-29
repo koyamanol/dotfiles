@@ -9,6 +9,7 @@ Plug 'itchyny/lightline.vim'                       "ステータスライン拡�
 Plug 'nathanaelkane/vim-indent-guides'             "インデントの可視化
 Plug 'airblade/vim-gitgutter'                      "編集箇所を差分表示
 Plug 'tpope/vim-fugitive'                          "git用プラグイン
+Plug 'github/copilot.vim'                          "Github Copilot用プラグイン
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    "LSPプラグイン
 Plug 'tpope/vim-commentary'                        "コメントを入力補完
 Plug 'tpope/vim-surround'                          "範囲選択を拡張
@@ -105,6 +106,23 @@ set updatetime=250                       "更新するタイミングを250msに
 "=========================================================================
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+
+"=========================================================================
+" copilot.vim
+"=========================================================================
+let g:copilot_filetypes = {
+        \ 'markdown': v:true,
+        \ 'text': v:true,
+        \ 'html': v:true,
+        \ 'css': v:true,
+        \ 'javascript': v:true,
+        \ 'typescript': v:true,
+        \ 'python': v:true,
+        \ 'ruby': v:true,
+        \ 'go': v:true,
+        \ 'java': v:true,
+        \ 'c': v:true,
+        \ }
 
 
 "=========================================================================
