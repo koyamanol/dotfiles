@@ -12,3 +12,6 @@ __pycache__
 
 # for Hugo
 /public
+
+# for Elm
+elm-stuff/
