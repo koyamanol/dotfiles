@@ -10,7 +10,6 @@ Plug 'nathanaelkane/vim-indent-guides'             "インデントの可視化
 Plug 'airblade/vim-gitgutter'                      "編集箇所を差分表示
 Plug 'tpope/vim-fugitive'                          "git用プラグイン
 Plug 'github/copilot.vim'                          "Github Copilot用プラグイン
-Plug 'neoclide/coc.nvim', {'branch': 'release'}    "LSPプラグイン
 Plug 'tpope/vim-commentary'                        "コメントを入力補完
 Plug 'tpope/vim-surround'                          "範囲選択を拡張
 Plug 'VincentCordobes/vim-translate'               "翻訳プラグイン
@@ -123,28 +122,6 @@ let g:copilot_filetypes = {
         \ 'java': v:true,
         \ 'c': v:true,
         \ }
-
-
-"=========================================================================
-" coc.nvim
-"=========================================================================
-"GoTo code navigation.
-nmap <silent> ,d <Plug>(coc-definition)
-nmap <silent> ,r <Plug>(coc-references)
-nmap <silent> ,y <Plug>(coc-type-definition)
-nmap <silent> ,i <Plug>(coc-implementation)
-
-"Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-"Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Temporary deal for coc.nvim's colorscheme bug 2021.11.23
-" autocmd VimEnter,ColorScheme * hi! link CocFloating CocHintFloat
-
-"ocp-indent
-set rtp^="/Users/norihiro/.opam/default/share/ocp-indent/vim"
 
 
 "=========================================================================
