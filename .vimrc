@@ -168,3 +168,11 @@ nnoremap <silent> <leader>p :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a Safari'
 let g:previm_show_header = 0
 
+
+"=========================================================================
+" Ocaml
+"=========================================================================
+augroup Ocamlformat
+  autocmd!
+  autocmd BufWritePre *.ml,*.mli execute ':%!ocamlformat --name % -'
+augroup END
