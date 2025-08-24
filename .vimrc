@@ -61,8 +61,7 @@ nnoremap <leader>r  :<C-u>registers<CR>
 nnoremap <leader>m  :<C-u>marks<CR>
 tnoremap <Esc> <C-\><C-n>
 
-inoremap <silent> jj <ESC>
-
+inoremap <C-k> <Esc>
 
 "=========================================================================
 " .vimrc更新用の設定
