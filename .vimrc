@@ -54,8 +54,6 @@ set hidden                      "ファイルが未保存でもバッファを�
 set splitbelow                  "水平分割時に下にウィンドウを開く
 
 nnoremap Y y$
-vnoremap > >gv
-vnoremap < <gv
 vnoremap <leader>y "+y
 nnoremap <leader>r  :<C-u>registers<CR>
 nnoremap <leader>m  :<C-u>marks<CR>
