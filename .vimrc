@@ -59,7 +59,8 @@ nnoremap <leader>r  :<C-u>registers<CR>
 nnoremap <leader>m  :<C-u>marks<CR>
 tnoremap <Esc> <C-\><C-n>
 
-inoremap <C-k> <Esc>
+inoremap <silent> jj <ESC>
+
 
 "=========================================================================
 " .vimrc更新用の設定
@@ -117,7 +118,7 @@ let g:copilot_filetypes = {
         \ 'go': v:true,
         \ 'java': v:true,
         \ 'c': v:true,
-        \ 'scheme': v:true,
+        \ 'scheme': v:false,
         \ }
 
 autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 tabstop=2
