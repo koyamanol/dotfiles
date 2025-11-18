@@ -1,4 +1,4 @@
-"========================================================================
+"=========================================================================
 " VimPlug
 "=========================================================================
 call plug#begin('~/.vim/plugged')
@@ -67,7 +67,6 @@ inoremap <C-k> <Esc>
 nnoremap <leader>.  :<C-u>edit $MYVIMRC<CR>
 nnoremap <leader>s  :<C-u>source $MYVIMRC<CR>
 
-
 "=========================================================================
 " 日付を自動で入力する
 "=========================================================================
@@ -118,7 +117,10 @@ let g:copilot_filetypes = {
         \ 'go': v:true,
         \ 'java': v:true,
         \ 'c': v:true,
+        \ 'scheme': v:true,
         \ }
+
+autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 
 "=========================================================================
@@ -173,3 +175,4 @@ augroup Ocamlformat
   autocmd!
   autocmd BufWritePre *.ml,*.mli execute ':%!ocamlformat --name % -'
 augroup END
+
