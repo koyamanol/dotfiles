@@ -59,7 +59,15 @@ nnoremap <leader>r  :<C-u>registers<CR>
 nnoremap <leader>m  :<C-u>marks<CR>
 tnoremap <Esc> <C-\><C-n>
 
+"jjで挿入モードからノーマルモードに戻る
 inoremap <silent> jj <ESC>
+
+"検索終了時に自動的に英数入力にする
+function! Disable()
+  call system('im-select com.apple.keylayout.ABC')
+endfunction
+
+autocmd CmdlineLeave /,\? call Disable()
 
 
 "=========================================================================
@@ -118,7 +126,7 @@ let g:copilot_filetypes = {
         \ 'go': v:true,
         \ 'java': v:true,
         \ 'c': v:true,
-        \ 'scheme': v:false,
+        \ 'scheme': v:true,
         \ }
 
 autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 tabstop=2
