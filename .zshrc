@@ -80,6 +80,19 @@ bindkey -r '^T'
 bindkey '^O' fzf-file-widget
 bindkey '^G' fzf-cd-widget
 
+# fzf function to search text in files
+f() {
+  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+
+  fzf --disabled --query "$*" \
+      --bind "start:reload:$RG_PREFIX ''" \
+      --bind "change:reload:$RG_PREFIX {q} || true" \
+      --delimiter : \
+      --preview 'bat --color=always --style=numbers --highlight-line {2} -- {1}' \
+      --preview-window '+{2}+3/3' \
+      --bind 'ctrl-o:execute(vim {1} +{2})'
+}
+
 
 #=========================================================================
 # Ocaml
