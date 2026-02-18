@@ -1,0 +1,107 @@
+# =========================================================================
+# 基本設定
+# =========================================================================
+start-at-login = true
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'horizontal'
+
+# マウスをフォーカスしたモニターの中央に移動
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# =========================================================================
+# ギャップ設定
+# =========================================================================
+[gaps]
+outer.left   = 0
+outer.right  = 0
+outer.top    = 0
+outer.bottom = 0
+inner.horizontal = 0
+inner.vertical   = 0
+
+# =========================================================================
+# メインモードのキーバインド
+# =========================================================================
+[mode.main.binding]
+
+# --- フォーカス移動（Option+hjkl）---
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# --- ウィンドウ移動（Ctrl+Option+hjkl）---
+ctrl-alt-h = 'move left'
+ctrl-alt-j = 'move down'
+ctrl-alt-k = 'move up'
+ctrl-alt-l = 'move right'
+
+# --- ウィンドウサイズ調整（Ctrl+Option）---
+ctrl-alt-minus  = 'resize smart -50'
+ctrl-alt-equal  = 'resize smart +50'
+
+# --- レイアウト切り替え ---
+alt-slash    = 'layout tiles horizontal vertical'
+alt-comma    = 'layout accordion horizontal vertical'
+
+# --- フルスクリーン ---
+alt-f = 'fullscreen'
+
+# --- フローティング切り替え ---
+alt-shift-space = 'layout floating tiling'
+
+# --- ワークスペース切り替え（Option+1-5）---
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+
+# --- ウィンドウをワークスペースに移動（Ctrl+Option+1-5）---
+ctrl-alt-1 = 'move-node-to-workspace 1'
+ctrl-alt-2 = 'move-node-to-workspace 2'
+ctrl-alt-3 = 'move-node-to-workspace 3'
+ctrl-alt-4 = 'move-node-to-workspace 4'
+ctrl-alt-5 = 'move-node-to-workspace 5'
+
+# --- サービスモードへ切り替え ---
+alt-shift-semicolon = 'mode service'
+
+# =========================================================================
+# サービスモード（設定リロードなど）
+# =========================================================================
+[mode.service.binding]
+esc         = ['reload-config', 'mode main']
+r           = ['flatten-workspace-tree', 'mode main']
+backspace   = ['close-all-windows-but-current', 'mode main']
+
+# =========================================================================
+# アプリの自動配置
+# =========================================================================
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = 'move-node-to-workspace 5'
