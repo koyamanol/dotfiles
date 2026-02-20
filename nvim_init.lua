@@ -2,7 +2,7 @@
 -- lazy.nvim のブートストラップ
 -- =========================================================================
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone",
     "--filter=blob:none",
@@ -28,6 +28,23 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local actions = require("telescope.actions")
+      require("telescope").setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+            n = {
+              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+          },
+        },
+      })
+    end,
   },
 
   -- ステータスライン（lightline → lualine に移行）
@@ -49,9 +66,6 @@ require("lazy").setup({
     opts = {},
   },
 
-  -- Git 操作
-  "tpope/vim-fugitive",
-
   -- GitHub Copilot
   "github/copilot.vim",
 
@@ -68,63 +82,80 @@ require("lazy").setup({
   -- サラウンド
   "tpope/vim-surround",
 
-  -- 翻訳
-  "VincentCordobes/vim-translate",
-
   -- テーブル作成
   "dhruvasagar/vim-table-mode",
-
-  -- Emmet
-  "mattn/emmet-vim",
 
   -- Todo.txt
   "kilisio/todo.txt-vim",
 
   -- Markdown プレビュー
-  "previm/previm",
+  {
+    "iamcco/markdown-preview.nvim",
+    lazy = false,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    init = function()
+      vim.g.mkdp_theme = "dark"
+    end,
+  },
 
   -- カラースキーム
   "nanotech/jellybeans.vim",
 
-  -- LSP
+  -- Treesitter
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      vim.lsp.config("ocamllsp", {})
-      vim.lsp.enable("ocamllsp")
-      vim.lsp.config("hls", {
-        settings = {
-          haskell = { formattingProvider = "ormolu" },
-        },
-      })
-      vim.lsp.enable("hls")
-    end,
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = { "scheme", "ocaml", "haskell", "lua", "markdown" },
+      highlight = { enable = true },
+      indent    = { enable = true },
+    },
   },
 
-  -- 補完
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-    },
-    config = function()
-      local cmp = require("cmp")
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"]      = cmp.mapping.confirm({ select = true }),
-          ["<C-e>"]     = cmp.mapping.abort(),
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "buffer" },
-          { name = "path" },
-        }),
-      })
-    end,
-  },
+  -- LSP（未使用のためコメントアウト）
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     -- OCaml
+  --     vim.lsp.config("ocamllsp", {})
+  --     vim.lsp.enable("ocamllsp")
+  --
+  --     -- Haskell
+  --     vim.lsp.config("hls", {
+  --       settings = {
+  --         haskell = { formattingProvider = "ormolu" },
+  --       },
+  --     })
+  --     vim.lsp.enable("hls")
+  --   end,
+  -- },
+
+  -- 補完（未使用のためコメントアウト）
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "hrsh7th/cmp-buffer",
+  --     "hrsh7th/cmp-path",
+  --   },
+  --   config = function()
+  --     local cmp = require("cmp")
+  --     cmp.setup({
+  --       mapping = cmp.mapping.preset.insert({
+  --         ["<C-Space>"] = cmp.mapping.complete(),
+  --         ["<CR>"]      = cmp.mapping.confirm({ select = true }),
+  --         ["<C-e>"]     = cmp.mapping.abort(),
+  --       }),
+  --       sources = cmp.config.sources({
+  --         { name = "nvim_lsp" },
+  --         { name = "buffer" },
+  --         { name = "path" },
+  --       }),
+  --     })
+  --   end,
+  -- },
 
 })
 
@@ -145,7 +176,6 @@ opt.autoindent   = true          -- 自動インデント
 opt.tabstop      = 4             -- タブ幅
 opt.shiftwidth   = 4             -- 自動インデント幅
 opt.softtabstop  = 4             -- 連続スペースをまとめて削除
-opt.backspace    = "2"           -- Ctrl-h の対象を増やす
 opt.list         = true          -- 不可視文字を表示
 opt.listchars    = { tab = "▸ ", trail = "." }
 opt.incsearch    = true          -- インクリメンタルサーチ
@@ -158,9 +188,7 @@ opt.splitbelow   = true          -- 水平分割時に下に開く
 opt.mouse        = ""            -- マウス操作を無効にする
 opt.signcolumn   = "yes"         -- サインカラムを常に表示
 opt.updatetime   = 250           -- 更新間隔を250msに設定
-opt.foldlevel    = 1             -- 折りたたみレベル
 
-vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")
 vim.cmd("colorscheme jellybeans")
 
@@ -174,40 +202,33 @@ vim.cmd("highlight NonText guibg=NONE ctermbg=NONE")
 local map = vim.keymap.set
 
 -- 基本操作
-map("n", "Y",          "y$")
 map("v", "<leader>y",  '"+y')
 map("n", "<leader>r",  ":<C-u>registers<CR>")
 map("n", "<leader>m",  ":<C-u>marks<CR>")
 map("t", "<Esc>",      "<C-\\><C-n>")
 map("i", "jj",         "<ESC>", { silent = true })
 
--- init.lua の編集・リロード
+-- init.lua の編集
 map("n", "<leader>.", ":<C-u>edit $MYVIMRC<CR>")
-map("n", "<leader>s", ":<C-u>source $MYVIMRC<CR>")
 
 -- Telescope
 map("n", "<leader>o",  ":Telescope find_files<CR>",  { silent = true })
 map("n", "<leader>b",  ":Telescope buffers<CR>",     { silent = true })
 map("n", "<leader>h",  ":Telescope oldfiles<CR>",    { silent = true })
-map("n", "<leader>fg", ":Telescope live_grep<CR>",   { silent = true })
+map("n", "<leader>g",  ":Telescope live_grep<CR>",   { silent = true })
 
--- vim-fugitive
-map("n", "<leader>gs", ":Git status<CR>")
-map("n", "<leader>gd", ":Gdiff<CR>")
+-- Quickfix
+map("n", "<C-j>", ":cnext<CR>",  { silent = true })
+map("n", "<C-k>", ":cprev<CR>",  { silent = true })
 
+-- MarkdownPreview
+map("n", "<leader>p", ":MarkdownPreview<CR>", { silent = true })
 
-
--- Previm
-map("n", "<leader>p", ":PrevimOpen<CR>", { silent = true })
-
--- Emmet
-vim.g.user_emmet_leader_key = "<C-e>"
-
--- LSP
-map("n", "gd",         vim.lsp.buf.definition,  { desc = "定義へジャンプ" })
-map("n", "K",          vim.lsp.buf.hover,        { desc = "ドキュメント表示" })
-map("n", "<leader>rn", vim.lsp.buf.rename,       { desc = "リネーム" })
-map("n", "<leader>ca", vim.lsp.buf.code_action,  { desc = "コードアクション" })
+-- LSP（未使用のためコメントアウト）
+-- map("n", "gd",         vim.lsp.buf.definition,  { desc = "定義へジャンプ" })
+-- map("n", "K",          vim.lsp.buf.hover,        { desc = "ドキュメント表示" })
+-- map("n", "<leader>rn", vim.lsp.buf.rename,       { desc = "リネーム" })
+-- map("n", "<leader>ca", vim.lsp.buf.code_action,  { desc = "コードアクション" })
 
 -- =========================================================================
 -- 自動コマンド
@@ -225,42 +246,14 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern  = "scheme",
   callback = function()
-    -- インデント設定
     vim.opt_local.shiftwidth  = 2
     vim.opt_local.softtabstop = 2
     vim.opt_local.tabstop     = 2
-
-    local buf = vim.api.nvim_get_current_buf()
-
-    -- REPL を起動
-    vim.keymap.set("n", "<leader>gr", function()
-      vim.cmd("split | terminal gosh")
-    end, { buffer = buf, desc = "Gauche REPLを起動" })
-
-    -- 現在の行をREPLに送る
-    vim.keymap.set("n", "<leader>gl", function()
-      local line = vim.api.nvim_get_current_line()
-      vim.fn.chansend(vim.b.terminal_job_id, line .. "\n")
-    end, { buffer = buf, desc = "現在の行をREPLに送る" })
-
-    -- 選択範囲をREPLに送る
-    vim.keymap.set("v", "<leader>gl", function()
-      local s = vim.fn.getpos("'<")
-      local e = vim.fn.getpos("'>")
-      local lines = vim.api.nvim_buf_get_lines(0, s[2] - 1, e[2], false)
-      vim.fn.chansend(vim.b.terminal_job_id, table.concat(lines, "\n") .. "\n")
-    end, { buffer = buf, desc = "選択範囲をREPLに送る" })
-
-    -- ファイル全体をREPLに読み込む
-    vim.keymap.set("n", "<leader>gf", function()
-      local file = vim.fn.expand("%:p")
-      vim.fn.chansend(vim.b.terminal_job_id, '(load "' .. file .. '")\n')
-    end, { buffer = buf, desc = "ファイルをREPLに読み込む" })
   end,
 })
 
 -- Todo.txt のファイルタイプ設定
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
   pattern  = { "todo.md", "done.md", "*.todo.md" },
   callback = function() vim.opt_local.filetype = "todo" end,
 })
@@ -276,20 +269,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- =========================================================================
 -- プラグイン個別設定
 -- =========================================================================
-
--- vim-table-mode
-vim.g.table_mode_corner = "|"
-
--- Previm
-vim.g.previm_open_cmd    = "open -a Safari"
-vim.g.previm_show_header = 0
-
-
-
--- Todo.txt
-vim.g.TodoTxtUseAbbrevInsertMode   = 1
-vim.g.TodoTxtStripDoneItemPriority = 1
-vim.g.Todo_fold_char               = "+"
 
 -- Copilot のファイルタイプ設定
 vim.g.copilot_filetypes = {
@@ -309,7 +288,16 @@ vim.g.copilot_filetypes = {
   haskell    = true,
 }
 
+-- vim-table-mode
+vim.g.table_mode_corner = "|"
+
+-- Todo.txt
+vim.g.TodoTxtUseAbbrevInsertMode   = 1
+vim.g.TodoTxtStripDoneItemPriority = 1
+vim.g.Todo_fold_char               = "+"
+
 -- =========================================================================
 -- 日付を自動入力する略語
 -- =========================================================================
 vim.cmd([[iabbrev dt <C-R>=strftime("%F")<CR>]])
+vim.cmd([[iabbrev tm <C-R>=strftime("%H:%M")<CR>]])

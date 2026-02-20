@@ -44,9 +44,9 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 #=========================================================================
 alias tree='tree -N'
 alias g='git'
-alias todo='vim -O3 ~/Documents/note/todo/{inbox.md,todo.txt,done.txt}'
-alias ob="cd ~/Documents/my_vault && tree -I '.obsidian' -L 2"
-alias today="cd ~/Documents/my_vault/daily && vim \$(date +%Y-%m-%d).md"
+alias note='cd ~/Documents/note/ && nvim 01_journal/$(date +%m-%d).md'
+alias today='cd ~/Documents/note/01_journal && nvim $(date +%m-%d).md'
+alias vim="nvim"
 
 
 #=========================================================================
