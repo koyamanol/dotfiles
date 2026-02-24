@@ -14,9 +14,6 @@ PROMPT='%F{magenta}%*%f %F{cyan}%n:%f%F{yellow}%~%f%F{red}${vcs_info_msg_0_}%f%F
 #=========================================================================
 # zsh setting
 #=========================================================================
-autoload -Uz compinit && compinit            # Enhancement of complement function
-
-export PATH="$PATH:$HOME/bin"                # Add PATH for my script
 export CLICOLOR=1                            # Configure command line colors
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
@@ -42,11 +39,12 @@ export LESS_TERMCAP_ue=$'\e[0m'              # End underline
 #=========================================================================
 # alias
 #=========================================================================
-alias tree='tree -N'
-alias g='git'
-alias note='cd ~/Documents/note/ && nvim 01_journal/$(date +%m-%d).md'
-alias today='cd ~/Documents/note/01_journal && nvim $(date +%m-%d).md'
 alias vim="nvim"
+alias g='git'
+alias tree='tree -N'
+alias note='cd ~/Documents/note/ && tree -N'
+alias today='cd ~/Documents/note/ && nvim 01_journal/$(date +%m-%d).md'
+alias todo='nvim -O ~/Documents/note/00_todo/{inbox,todo,done}.md -c "windo normal zR" -c "wincmd h"'
 
 
 #=========================================================================
@@ -92,34 +90,3 @@ f() {
       --preview-window '+{2}+3/3' \
       --bind 'ctrl-o:execute(vim {1} +{2})'
 }
-
-
-#=========================================================================
-# Ocaml
-#=========================================================================
-[[ ! -r /Users/norihiro/.opam/opam-init/init.zsh ]] || source /Users/norihiro/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-eval $(opam env)
-
-
-#=========================================================================
-# python
-#=========================================================================
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"   # Make python3 default
-export PATH="$PATH:$HOME/.poetry/bin"                          # Add PATH for poetry
-
-export LC_ALL=en_US.UTF-8                                      # Set the locale for Python
-export LANG=en_US.UTF-8
-
-
-#=========================================================================
-# nvm
-#=========================================================================
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
-#=========================================================================
-# ChordPro
-#=========================================================================
-export PATH="/opt/homebrew/Cellar/perl/5.32.1_1/bin/:$PATH"    # Add PATH for ChordPro
